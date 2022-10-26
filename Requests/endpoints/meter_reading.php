@@ -44,6 +44,9 @@ if (empty($users_id_users)) {
     echo $errorMSG;
 } else {
     $upload_path = '../../mobile_uploads/'; // set upload folder path
+    if (!file_exists($upload_path)) {
+        mkdir($upload_path, 0777, true);
+    }
 
     $fileName = stripslashes($fuel_id_fuel . '_meter_') . $fileName;
 
